@@ -4,34 +4,31 @@ This code is rewritten from http://www.nervouscomputer.com/hfs/pdf/introtns/Gett
 
 from __future__ import division
 import numpy as np
-import math
 import matplotlib.pyplot as plt
 
-
-
 # right hand side of the ODE
-def func(x) :
-    return x + 1
+def f(x, y) :
+    return y + 1 # x doesn't matter since dy/dx is linear
 
 # initial condition
 y0 = 0
 
 # time step
-time_step = 0.01
+h = 0.01
 
 # solve from 0 to time T
 T = 10
 
 # list of discretized time (visualization purpose only) 
-x = np.linspace(0, T, int(T/time_step) + 1)
+x = np.linspace(0, T, int(T/h) + 1)
 
 # solution
-y = np.zeros(len(t)) 
+y = np.zeros(len(x)) 
 
 y[0] = y0;
 
-for i in xrange(1, len(t)) :
-    y[i] = y[i - 1] + func(y[i - 1]) * time_step
+for i in xrange(1, len(x)) :
+    y[i] = y[i - 1] + f(x[i - 1], y[i - 1]) * h
     
 plt.figure()
 
