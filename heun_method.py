@@ -38,6 +38,8 @@ for i in xrange(1, len(x)) :
     
 plt.figure()
 
+
+
 plt.plot(x, y_h, color='red')
 plt.plot(x, y_e, color='blue')
 plt.show()
