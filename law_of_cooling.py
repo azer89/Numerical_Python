@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pylab as plt 
 from scipy.integrate import odeint
 
-Ts = 70.0
+Ts = 5.0
 k  = -0.2
 
 def func(T, t):
