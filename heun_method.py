@@ -8,19 +8,21 @@ import matplotlib.pyplot as plt
 
 # right hand side of the ODE
 def f(x, y) :
-    return y + 1 # x doesn't matter since dy/dx is linear
+    return y * (1 - y) 
+    #return y + 1 # x doesn't matter since dy/dx is linear
 
 # initial condition
-y0 = 0
+y0 = 0.01
 
 # time step
-h = 0.01
+h = 0.5
 
 # solve from 0 to time T
-T = 10
+T = 15
 
 # list of discretized time (visualization purpose only) 
-x = np.linspace(0, T, int(T/h) + 1)
+x = np.arange(0, T, 0.5)
+#x = np.linspace(0, T, T * 2)
 
 # heun's method
 y_h = np.zeros(len(x)) 
@@ -40,7 +42,7 @@ plt.figure()
 
 
 
-plt.plot(x, y_h, color='red')
-plt.plot(x, y_e, color='blue')
+plt.plot(x, y_h, color='blue')
+plt.plot(x, y_e, color='red')
 plt.show()
     
