@@ -20,7 +20,7 @@ max_step      = 2.0
 max_gamma     = 5.0
 safety_factor = 0.8
 
-# In[] The deivative function
+# In[] The derivative function
 
 def logistic(y, t):
     return y * (1 - y)
@@ -62,8 +62,9 @@ def ode12(de_fcn, tspan, y0, tol, h0 = 0.5):
         
     return y_history, t_history
 
-# In[]   
+# In[] Solve and plot the solution  
 
+# Solve the solution
 y, t = ode12(logistic, [t_start, t_end], y0, tol)
   
 # plot solution
@@ -75,6 +76,8 @@ plt.plot(t, y, color='blue');
 for i in t:    
     plt.plot([i, i], [0.0, 1.0], 'k-', lw=0.5)
 
+
 plt.show()
+
 
 
