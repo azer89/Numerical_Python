@@ -5,6 +5,7 @@ Computer Science Department - University of Waterloo
 radhitya@uwaterloo.ca
 '''
 
+
 from __future__ import division
 import numpy as np
 import matplotlib.pylab as plt
@@ -12,13 +13,13 @@ plt.ion()
 
 # In[] Parameters
 
-tol           = 0.001
-y0            = 0.01 
-t_start       = 0.0
+tol           = 0.001  # delta
+y0            = 0.01   # initial condition
+max_step      = 2.0    # maximum step size h
+max_gamma     = 5.0    # h_opt = h * gamma
+safety_factor = 0.8    # 80 percent
+t_start       = 0
 t_end         = 15.0
-max_step      = 2.0
-max_gamma     = 5.0
-safety_factor = 0.8
 
 # In[] The derivative function
 
@@ -70,14 +71,27 @@ y, t = ode12(logistic, [t_start, t_end], y0, tol)
 # plot solution
 plt.figure(1)
 plt.clf()
+plt.title("Approximate Solution")
 plt.plot(t, y, color='blue'); 
 
 # plot timestaps as vertical lines
 for i in t:    
     plt.plot([i, i], [0.0, 1.0], 'k-', lw=0.5)
 
+plt.show()
+
+# In[] (Optional) plot the analytical solution y = exp(t) / ( 99 + exp(t) )
+t2 = np.arange(t_start, t_end, 0.1)
+plt.title("Analytical Solution vs Approximation")
+plt.plot(t, y, color='blue', label='approximation'); 
+plt.plot(t2, np.exp(t2) / (99.0 + np.exp(t2)), color='green', label='analytic')
+
+plt.legend(loc='upper right', shadow=False)
 
 plt.show()
+
+
+
 
 
 
