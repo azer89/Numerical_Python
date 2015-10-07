@@ -1,10 +1,12 @@
-# rootfinding_methods
-# rewritten from: https://gist.github.com/swvist/3775568
+# rootfinding methods
+# inspired from: https://gist.github.com/swvist/3775568
 
 import sys
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+
+plt.ion()
 
 # function f(x)
 def my_func(x):
@@ -24,7 +26,7 @@ def dfdx(x):
 # fixed-point method
 def fixed_point(p, x0, tolerance = 0.000001, n_max = 1000) :
     err = sys.float_info.max
-    x_history = []
+    x_history = [x0]
     for i in range(0, n_max):
         x = p(x0)
         x_history.append(x)        
@@ -66,6 +68,23 @@ def plot_phi_func(p, a, b, x_history):
         y_x_history[i] = p(x_history[i])
     plt.plot(x_history, y_x_history, 'ro')
     
+    # draw lines
+    for i in range(0, len(y_x_history) - 1) :
+        cur_y = y_x_history[i]        
+        cur_x = x_history[i]
+        next_y = y_x_history[i + 1]        
+        next_x = x_history[i + 1]
+        
+        if i == 0:
+            # draw a line from (x0, 0) to (x0, yo) 
+            plt.plot([cur_x, cur_x], [0.0, cur_y], 'k-', lw=0.5)
+            
+        # draw a line from phi(x_n) to x_n = y_n
+        plt.plot([cur_x, cur_y], [cur_y, cur_y], 'k-', lw=0.5)
+        # draw a line from x_n = y_n to phi(x_{n+1})
+        plt.plot([cur_y, next_x], [cur_y, next_y], 'k-', lw=0.5)
+        
+    plt.plot([0, 1], [0, 1], 'k-', lw=0.5)
     
     plt.show()
     
