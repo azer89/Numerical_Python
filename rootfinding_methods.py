@@ -12,7 +12,7 @@ plt.ion()
 default_tol = 0.000001
 default_n_max = 1000
 
-# function f(x)
+# function f(x) we want to find its roots
 def my_func(x):
     return x - math.cos (x)
     #return x**3 - x - 2.0
@@ -25,13 +25,14 @@ def phi(x):
 #def phi_newton(x):
     #x - (math.cos(x) / -math.sin(x))
     #return x + (1.0 / math.tan(x))
-#    return x - (np.sin(2.0*x))/(-1.0+np.cos(2.0* x))
+    #return x - (np.sin(2.0*x))/(-1.0+np.cos(2.0* x))
     
 # 1st derivative
 def dfdx(x):
     return math.sin(x) + 1.0    
     #return 3.0 * x**2 - 1
     
+# secant method
 def secant(f, x0, x1, tolerance = default_tol, n_max = default_n_max) :
     err = sys.float_info.max
     x_history = [x0, x1]
@@ -87,7 +88,7 @@ def bisection(f, a, b, tolerance = default_tol, n_max = default_n_max):
         else :
             b = c
             
-# visualization
+# visualization for fixed-point iterations
 def plot_fixed_point_method(p, a, b, x_history):    
     x_all = np.arange(a, b, 0.01)
     y_all = np.zeros(len(x_all))
@@ -122,8 +123,7 @@ def plot_fixed_point_method(p, a, b, x_history):
     plt.show()
     
             
-if __name__ == "__main__":   
-    
+if __name__ == "__main__":
     #root = bisection(my_func, 0.0, 1.0)
     #print '(bisection) the root is ', root
     
