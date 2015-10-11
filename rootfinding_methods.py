@@ -17,22 +17,24 @@ def my_func(x):
     return x - math.cos (x)
     #return x**3 - x - 2.0
     
-# phi(x) = x (for bisection method)
+# phi(x) = x
+# this function is the input for the bisection method
 def phi(x):
     return math.cos(x)    
     #return x**3 -  2.0
     
-#def phi_newton(x):
-    #x - (math.cos(x) / -math.sin(x))
-    #return x + (1.0 / math.tan(x))
-    #return x - (np.sin(2.0*x))/(-1.0+np.cos(2.0* x))
-    
 # 1st derivative
+    # this function is the input for newton method
 def dfdx(x):
     return math.sin(x) + 1.0    
     #return 3.0 * x**2 - 1
-    
-# secant method
+  
+'''  
+secant method
+f       function f(x)
+x0      initial guess
+x1      initial guess
+'''
 def secant(f, x0, x1, tolerance = default_tol, n_max = default_n_max) :
     err = sys.float_info.max
     x_history = [x0, x1]
@@ -47,7 +49,12 @@ def secant(f, x0, x1, tolerance = default_tol, n_max = default_n_max) :
             return x, x_history
     
 
-# newton's method
+'''  
+secant method
+f       function f(x)
+deriv   1-order derivation of f(x)
+x0      initial guess
+'''
 def newton(f, deriv, x0, tolerance = default_tol, n_max = default_n_max) :
     err = sys.float_info.max
     x_history = [x0]
@@ -61,7 +68,11 @@ def newton(f, deriv, x0, tolerance = default_tol, n_max = default_n_max) :
         
         x0 = x
     
-# fixed-point method
+'''  
+fixed-point method
+p       function p(x) = x
+x0      initial guess
+'''
 def fixed_point(p, x0, tolerance = default_tol, n_max = default_n_max) :
     err = sys.float_info.max
     x_history = [x0]
@@ -76,7 +87,12 @@ def fixed_point(p, x0, tolerance = default_tol, n_max = default_n_max) :
         x0 = x
         
     
-# bisection method
+'''  
+bisection method
+f       function f(x)
+as      lower limit
+b       upper limit
+'''
 def bisection(f, a, b, tolerance = default_tol, n_max = default_n_max):    
     for i in range(0, n_max) :    
         c = (a + b) / 2.0
