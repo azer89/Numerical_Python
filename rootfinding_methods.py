@@ -1,5 +1,6 @@
 # rootfinding methods
 
+# radhitya@uwaterloo.ca
 
 import sys
 import numpy as np
@@ -50,7 +51,7 @@ def secant(f, x0, x1, tolerance = default_tol, n_max = default_n_max) :
     
 
 '''  
-secant method
+newton method
 f       function f(x)
 deriv   1-order derivation of f(x)
 x0      initial guess
@@ -103,8 +104,9 @@ def bisection(f, a, b, tolerance = default_tol, n_max = default_n_max):
             a = c
         else :
             b = c
-            
-# visualization for fixed-point iterations
+'''          
+visualization for fixed-point iterations
+'''
 def plot_fixed_point_method(p, a, b, x_history):    
     x_all = np.arange(a, b, 0.01)
     y_all = np.zeros(len(x_all))
@@ -138,7 +140,9 @@ def plot_fixed_point_method(p, a, b, x_history):
     
     plt.show()
     
-            
+'''
+main function
+'''
 if __name__ == "__main__":
     #root = bisection(my_func, 0.0, 1.0)
     #print '(bisection) the root is ', root
