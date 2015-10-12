@@ -1,6 +1,11 @@
-# rootfinding methods
 
-# radhitya@uwaterloo.ca
+
+'''
+Reza Adhitya Saputra
+radhitya@uwaterloo.ca
+'''
+
+# rootfinding methods
 
 import sys
 import numpy as np
@@ -33,8 +38,8 @@ def dfdx(x):
 '''  
 secant method
 f       function f(x)
-x0      initial guess
-x1      initial guess
+x0      1st initial guess
+x1      2nd initial guess
 '''
 def secant(f, x0, x1, tolerance = default_tol, n_max = default_n_max) :
     err = sys.float_info.max
