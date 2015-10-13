@@ -49,7 +49,7 @@ def secant(f, x0, x1, tolerance = default_tol, n_max = default_n_max) :
         x_2 = x_history[-2]
         x = x_1 - f(x_1) * ((x_1 - x_2) / ( f(x_1) - f(x_2) )) 
         x_history.append(x)   
-        err = np.abs(x - x0)
+        err = np.abs(x - x_1)
         
         if err < tolerance or i == n_max - 1:
             return x, x_history
