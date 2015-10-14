@@ -36,7 +36,7 @@ def dfdx(x):
     #return 3.0 * x**2 - 1
   
 '''  
-secant method
+Secant method
 f       function f(x)
 x0      1st initial guess
 x1      2nd initial guess
@@ -44,6 +44,7 @@ x1      2nd initial guess
 def secant(f, x0, x1, tolerance = default_tol, n_max = default_n_max) :
     err = sys.float_info.max
     x_history = [x0, x1]
+    x = 0
     for i in range(0, n_max):     
         x_1 = x_history[-1]
         x_2 = x_history[-2]
@@ -51,66 +52,78 @@ def secant(f, x0, x1, tolerance = default_tol, n_max = default_n_max) :
         x_history.append(x)   
         err = np.abs(x - x_1)
         
-        if err < tolerance or i == n_max - 1:
+        if err < tolerance :
             return x, x_history
     
-
+    return x, x_history
+    
+    
 '''  
-newton method
+Newton method
 f       function f(x)
 deriv   1-order derivation of f(x)
 x0      initial guess
 '''
 def newton(f, deriv, x0, tolerance = default_tol, n_max = default_n_max) :
     err = sys.float_info.max
+    x = x0
     x_history = [x0]
     for i in range(0, n_max):                
         x = x0 - ( f(x0) / deriv(x0) )
         x_history.append(x)  
         err = np.abs(x - x0)
         
-        if err < tolerance or i == n_max - 1:
+        if err < tolerance:
             return x, x_history        
         
         x0 = x
-    
+        
+    return x, x_history
+
 '''  
-fixed-point method
+Fixed-point method
 p       function p(x) = x
 x0      initial guess
 '''
 def fixed_point(p, x0, tolerance = default_tol, n_max = default_n_max) :
     err = sys.float_info.max
+    x = x0
     x_history = [x0]
     for i in range(0, n_max):
         x = p(x0)
         x_history.append(x)  
         err = np.abs(x - x0)
         
-        if err < tolerance or i == n_max - 1:
+        if err < tolerance:
             return x, x_history        
         
         x0 = x
+    
+    return x, x_history
         
     
 '''  
-bisection method
+Bisection method
 f       function f(x)
 as      lower limit
 b       upper limit
 '''
-def bisection(f, a, b, tolerance = default_tol, n_max = default_n_max):    
+def bisection(f, a, b, tolerance = default_tol, n_max = default_n_max):   
+    c = 0
     for i in range(0, n_max) :    
         c = (a + b) / 2.0
         fc = f(c)        
-        if np.abs(fc) < tolerance or np.abs(b - a) < tolerance  or i == n_max - 1:
+        if np.abs(fc) < tolerance or np.abs(b - a) < tolerance :
             return c
         elif f(a) * fc > 0 :
             a = c
         else :
             b = c
+    
+    return c
+
 '''          
-visualization for fixed-point iterations
+Visualization for fixed-point iterations
 '''
 def plot_fixed_point_method(p, a, b, x_history):    
     x_all = np.arange(a, b, 0.01)
@@ -146,7 +159,7 @@ def plot_fixed_point_method(p, a, b, x_history):
     plt.show()
     
 '''
-main function
+Main function
 '''
 if __name__ == "__main__":
     #root = bisection(my_func, 0.0, 1.0)
