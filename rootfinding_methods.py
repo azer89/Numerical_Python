@@ -143,9 +143,9 @@ def plot_fixed_point_method(p, a, b, x_history):
         next_y = y_x_history[i + 1]        
         next_x = x_history[i + 1]
         
-        if i == 0:
-            # draw a line from (x0, 0) to (x0, yo) 
-            plt.plot([cur_x, cur_x], [0.0, cur_y], 'k-', lw=0.5)
+        #if i == 0:
+        #    # draw a line from (x0, 0) to (x0, yo) 
+        #    plt.plot([cur_x, cur_x], [0.0, cur_y], 'k-', lw=0.5)
             
         # draw a line from phi(x_n) to x_n = y_n
         plt.plot([cur_x, cur_y], [cur_y, cur_y], 'k-', lw=0.5)
