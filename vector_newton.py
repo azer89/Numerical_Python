@@ -63,7 +63,7 @@ def VectorNewtonsMethod(fcn, Jacobian, x_orig, xtol = 10e-7):
     
     # the loop is only 20 times
     for i in range(0, 20):           
-        j_matrix = Jacobian(x_0)    # ontain the jacobian matrix
+        j_matrix = Jacobian(x_0)    # obtain the jacobian matrix
         min_fx = -fcn(x_0)          # obtain -f(x)
         delta_x = np.linalg.solve(j_matrix, min_fx) # solve J . delta_x = -fx
         
