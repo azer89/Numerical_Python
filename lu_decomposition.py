@@ -34,8 +34,7 @@ def lu_decomposition(mat) :
     return l_mat, u_mat
 
 if __name__ == "__main__":
-    # you can try a bunch of input matrixes here
-    # just uncomment one of them    
+    # uncomment one of input matrices    
     
     #mat = np.array([[  1.0, 3.0, -11.0], 
     #                [ -6.0, 7.0,  10.0], 
@@ -48,6 +47,7 @@ if __name__ == "__main__":
                     [  2.0,  5.0,  12.0], 
                     [  0.0,  2.0, -10.0]])
     
+    # solve the LU decomposition
     l_mat, u_mat = lu_decomposition(mat)
     
     #row = len(mat[:,1])

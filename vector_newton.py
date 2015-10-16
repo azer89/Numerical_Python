@@ -11,7 +11,7 @@ radhitya@uwaterloo.ca
 import numpy as np
 
 '''
-vector-valued f(x), where x is a vector
+Vector-valued f(x), where x is a vector
 '''
 def my_f(x):
     x_1 = x[0]
@@ -53,7 +53,7 @@ def my_Jacobian(x):
     return j_matrix
     
 '''
-vector newton
+Vector newton
 
 note that the last parameter is tolerance
 '''
@@ -86,7 +86,7 @@ def VectorNewtonsMethod(fcn, Jacobian, x_orig, xtol = 10e-7):
 
 '''
 These below are bunch of initial values,
-uncomment one of them
+uncomment one of them.
 '''
 #x_0 = np.array([0.4, 0.0, 0.9])    # FAILED
 x_0 = np.array([0.0, 1.0, 0.0])    # SUCCESS
