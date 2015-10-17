@@ -1,3 +1,10 @@
+
+'''
+Reza Adhitya Saputra
+Computer Science Department - University of Waterloo
+radhitya@uwaterloo.ca
+'''
+
 import numpy as np
 import matplotlib.pylab as plt 
 from scipy.integrate import odeint
@@ -5,6 +12,7 @@ from scipy.integrate import odeint
 Ts = 5.0
 k  = -0.2
 
+# derivative is positive, means increasing
 def func(T, t):
     return [k * ( T[0] - Ts)]
     

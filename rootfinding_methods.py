@@ -2,6 +2,7 @@
 
 '''
 Reza Adhitya Saputra
+Computer Science Department - University of Waterloo
 radhitya@uwaterloo.ca
 '''
 
