@@ -6,6 +6,7 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
+plt.ion()
 
 # get the index of the biggest element
 def get_max_idx(vals):
@@ -22,6 +23,7 @@ def get_max_idx(vals):
 
 # generate a random matrix
 A = np.random.rand(2, 2) - 0.5
+#A = A + A.T
 
 # induced matrix norm
 # this is an implementation of p-norm:
@@ -37,6 +39,17 @@ for theta in thetas:
 max_idx = get_max_idx(vals)
     
 # plot
-plt.plot(thetas, vals, color='blue')
-plt.plot(thetas[max_idx], vals[max_idx], 'o', color='red')
+#plt.plot(thetas, vals, color='blue')
+#plt.plot(thetas[max_idx], vals[max_idx], 'o', color='red')
+#plt.show()
+
+# 
+B = A + A.T
+for i in range(500) :
+    x = np.random.rand(2) - 0.5
+    x = x / np.linalg.norm(x)
+    y = np.dot(B, x)
+    plt.plot(y[0],y[1],'.')
+plt.axis('equal')
 plt.show()
+
