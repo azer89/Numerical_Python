@@ -5,8 +5,8 @@ minimize || Ax - b || using qr factorization
 
 import numpy as np
 
-# create a mxn array, where m > n
-A = np.random.rand(10, 3)
+# create a mn x n array, where m >= n
+A = np.random.rand(10, 5)
 
 b = np.random.rand(10, 1)
 
@@ -17,6 +17,8 @@ q,r = np.linalg.qr(A)
 qtb = np.dot(q.T, b)
 x_array = np.linalg.solve(r, qtb)
 
+# if m = n, C is an identity matrix
+C = np.dot(q, q.T)
 
 # print the solution
 print x_array
