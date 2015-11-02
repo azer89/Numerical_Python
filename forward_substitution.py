@@ -8,6 +8,7 @@ import numpy as np
 # In[]
 
 def forwardsub(L, b):
+    row, col = np.shape(L)
     y = b.copy()
 
     # first row
@@ -23,9 +24,7 @@ def forwardsub(L, b):
 # In[]
 
 L = np.array([[2.0, 0.0], 
-              [1.0, 2.0]])
-              
-row, col = np.shape(L)
+              [1.0, 2.0]])            
               
 b = np.array([1.0, 10.0])
 

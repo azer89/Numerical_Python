@@ -7,6 +7,7 @@ import numpy as np
 
 # In[]
 def backsub(U, b):
+    row, col = np.shape(U)
     y = b.copy()
 
     # last row
@@ -24,8 +25,6 @@ def backsub(U, b):
 U = np.array([[3.0, 1.0, 1.0], 
               [0.0, 2.0, 1.0],
               [0.0, 0.0, 2.0]])
-              
-row, col = np.shape(U)
 
 b = np.array([3.0, 2.0, 1.0])
 
