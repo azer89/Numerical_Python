@@ -2,6 +2,8 @@
 '''
 QR Decomposition using Householder reflection
 
+Reza Adhitya Saputra
+Computer Science Department - University of Waterloo
 radhitya@uwaterloo.ca
 '''
 
@@ -10,7 +12,7 @@ import numpy as np
 
 # In[]:
 '''
-Function to calculate QR decomposition
+Function to calculate full QR decomposition
 
 parameter: 
     A: an MxN matrix where N <= M
@@ -38,7 +40,7 @@ def myQR(A):
         e[0] = 1.0
         
         # the sign is implemented using cmp()
-        #u = -cmp(x[0], 0) * np.linalg.norm(x, 2) * e - x
+        #u = -cmp(x[0], 0) * np.linalg.norm(x, 2) * e - x # this works too
         u = cmp(x[0], 0) * np.linalg.norm(x, 2) * e + x
         
         # make it a unit vector
@@ -47,29 +49,33 @@ def myQR(A):
         # the transpose of u
         u_t = u.reshape((1, len(u))) 
         
-        # should reshape into a 2-d array, I don't know why
+        # should reshape u into a 2-d array, 
+        # so it can be used in a dot product operation
         u = u.reshape(len(u), 1) 
 
-        # calculate Q_{k} = I - 2 u u^T        
+        # calculate Q_{k}      
         I = np.eye(len(u), len(u))
         F = I - 2.0 * np.dot(u, u_t) 
-        Q_k = np.eye(M, M)        
-        Q_k[k:M, k:M] = F
+        #print np.dot(F, x)
+        Q_k = np.eye(M, M) # initially it is I       
+        Q_k[k:M, k:M] = F  # overwrite the bottom right square
         
         # Q = I x Q_{1} x Q_{2} x Q_{3} x ... 
         Q = np.dot(Q, Q_k)      
         
+        # calculate A_{k}
         for j in range(k, N):        
             utA = np.dot(u.T, R[k:M, j])
             R[k:M, j] = R[k:M, j] - 2.0 * np.dot(u, utA) 
         
     return Q, R
 
+
 # In[]: these tests were written by Jeff Orchard (jorchard@uwaterloo.ca)
 '''
 A function that contains tests to check whether A = QR
 
-params:
+parameters:
     A: an MxN matrix where N <= M
     Q: an orthogonal matrix whose size is MxM
     R: an upper-triangular matrix whose size is MxN 
@@ -107,9 +113,9 @@ def testQR(A, Q, R):
     else:
         print '!*!*! Back to the drawing board. Some of the tests failed. !*!*!'
 
-# In[]:
+# In[]: The main function
 if __name__ == "__main__":
-    A = np.random.rand(100,5)
+    A = np.random.rand(4,4)
     Q, R = myQR(A)
     testQR(A, Q, R)
 
