@@ -6,6 +6,9 @@ Backward substitution
 import numpy as np
 
 # In[]
+'''
+Function to perform backward substitution
+'''
 def backsub(U, b):
     row, col = np.shape(U)
     y = b.copy()

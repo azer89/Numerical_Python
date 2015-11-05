@@ -25,12 +25,12 @@ def myQR(A):
     M, N = np.shape(A)
     
     # This will be reduced to upper-triangular matrx
-    R = A.copy()    
-    
+    R = A.copy()
+                
     # Q = I x Q_{1} x Q_{2} x Q_{3} x ...
     Q = np.eye(M, M)
     
-    for k in range(0, N):
+    for k in range(0, min(M, N)):
         
         # vector x
         x = R[k:M,k].copy()
@@ -114,10 +114,23 @@ def testQR(A, Q, R):
         print '!*!*! Back to the drawing board. Some of the tests failed. !*!*!'
 
 # In[]: The main function
-if __name__ == "__main__":
-    A = np.random.rand(4,4)
-    Q, R = myQR(A)
-    testQR(A, Q, R)
+#if __name__ == "__main__":
+A = np.random.rand(4, 9)
+
+#I = np.eye(9, 9)
+#A = np.concatenate((A, I), axis=0)
+
+## this non L.I. example
+#A = np.array([[1.0, -2.0, 1.0],
+#              [2.0, -4.0, 0.0],
+#              [1.0, -2.0, 3.0]])  
+              
+   
+Q, R = myQR(A)
+
+#RTR = np.dot(R.T, R).copy()    
+#print np.linalg.det(RTR)
+testQR(A, Q, R)
 
 
 
