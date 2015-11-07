@@ -115,18 +115,24 @@ def testQR(A, Q, R):
 
 # In[]: The main function
 #if __name__ == "__main__":
-A = np.random.rand(4, 9)
+#A = np.random.rand(4, 9)
 
 #I = np.eye(9, 9)
 #A = np.concatenate((A, I), axis=0)
 
-## this non L.I. example
-#A = np.array([[1.0, -2.0, 1.0],
-#              [2.0, -4.0, 0.0],
-#              [1.0, -2.0, 3.0]])  
+# this non L.I. example
+A = np.array([[1.0, -2.0, 1.0],
+              [2.0, -4.0, 0.0],
+              [1.0, -2.0, 3.0]])  
+
+#A = np.array([[1.0, 1.0, -2.0],
+#              [2.0, 0.0, -4.0],
+#              [1.0, 3.0, -2.0]])  
               
    
-Q, R = myQR(A)
+#Q, R = myQR(A)
+Q, R = np.linalg.qr(A)
+
 
 #RTR = np.dot(R.T, R).copy()    
 #print np.linalg.det(RTR)

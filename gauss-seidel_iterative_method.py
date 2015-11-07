@@ -1,0 +1,3 @@
+'''
+Gauss-Seidel iterative method
+'''
