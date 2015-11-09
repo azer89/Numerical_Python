@@ -7,6 +7,8 @@ Gauss-Seidel iterative method
 
 import numpy as np
 
+
+
 def GaussSeidelIteration(A, f, x0):
     x_new = x0.copy()
     max_iter = 100
