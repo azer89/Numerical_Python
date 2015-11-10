@@ -8,6 +8,10 @@ a matrix version of jacobi method
 
 import numpy as np
 
+
+'''
+Function to perform backward substitution
+'''
 def backsub(U, b):
     row, col = np.shape(U)
     y = b.copy()
@@ -21,31 +25,47 @@ def backsub(U, b):
         y[i] = y[i] / U[i][i]
     
     return y
-    
+
+'''
+
+A = D - L - U
+
+D x_{n+1} = b + (L + U) x_{n}
+'''
 def JacobiSolve(A, f, u0, maxIter, tol):
+    
+    # create a diagonal matrix D 
     D_vec = np.diag(A)
     D = np.zeros(np.shape(A))
     for i in range(len(D_vec)):
         D[i, i] = D_vec[i] 
     
-    L = np.tril(A) - D        
-    U = np.triu(A) - D
+    # create lower-triangular matrix
+    L = -np.tril(A) + D
+
+    # create upper-triangular matrix          
+    U = -np.triu(A) + D
     
-    L = -L
-    U = -U 
-    
+    # calculate L + U once
     LplusU = L + U
     
     x_new = u0.copy()
     for iter in range(maxIter): 
         x_prev = x_new.copy()
+        
+        # b + (L + U) x_{n}
         right_side = f + np.dot(LplusU, x_new)
+        
+        # calculate x_{n+1} using backward substitution 
         x_new = backsub(D, right_side)
+        
+        # stop ?
         d = np.linalg.norm(x_prev - x_new)
         if d < tol:
             print "stopped after ", iter, " iterations"
             break
     
+    # return the solution
     return x_new
     
 
