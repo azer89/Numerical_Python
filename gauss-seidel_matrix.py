@@ -25,6 +25,43 @@ def forwardsub(L, b):
     return y
 
 '''
+A single step of Gauss-Seidel method
+
+parameters:
+    A     : a square matrix
+    u0    : the initial guess
+    f     : the right hand side matrix, Ax = f
+    DminL : a lower-triangular (D - L) matrix, where A = D - L - U
+    U     : an upper triangular matrix without the diagonal, where A = D - L - U
+return:
+    x_new : the approximate solution of x
+'''
+def GSstep(A, u0, f, DminL=None, U=None):
+    
+    # the user can feed the precomputed (D - L) and U to speed up computation
+    if DminL is None or U is None:
+        # create a diagonal matrix D    
+        D_vec = np.diag(A)
+        D = np.zeros(np.shape(A))
+        for i in range(len(D_vec)):
+            D[i, i] = D_vec[i] 
+        
+        # create lower-triangular matrix
+        L = -np.tril(A) + D 
+    
+        # create upper-triangular matrix        
+        U = -np.triu(A) + D
+        
+        # calculate D - L once
+        DminL = D - L
+
+    # b + U x_{n}
+    right_side = f + np.dot(U, u0)
+    
+    # calculate x_{n+1} using forward substitution        
+    return forwardsub(DminL, right_side)
+        
+'''
 
 A = D - L - U
 
@@ -32,6 +69,7 @@ A = D - L - U
 '''
 def GSsolve(A, f, u0, maxIter = 100, tol = 1e-10):
 
+    # precompute A = D - L - U (optional)
     # create a diagonal matrix D    
     D_vec = np.diag(A)
     D = np.zeros(np.shape(A))
@@ -50,17 +88,10 @@ def GSsolve(A, f, u0, maxIter = 100, tol = 1e-10):
     x_new = u0.copy()
     
     for iter in range(maxIter): 
-        x_prev = x_new.copy()
-        
-        # b + U x_{n}
-        right_side = f + np.dot(U, x_new)
-        
-        # calculate x_{n+1} using forward substitution        
-        x_new = forwardsub(DminL, right_side)
-        
-        # stop ?
-        d = np.linalg.norm(x_prev - x_new)
-        if d < tol:
+        x_new = GSstep(A, x_new, f, DminL, U)        
+        Ax = np.dot(A, x_new)               
+        residual = np.linalg.norm(f - Ax)
+        if residual < tol:
             print "stopped after ", iter, " iterations"
             break
     

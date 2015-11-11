@@ -9,21 +9,21 @@ import numpy as np
 
 
 
-def GaussSeidelIteration(A, f, x0):
+def GaussSeidelIteration(A, f, x0, maxIter = 100, tol = 1e-10):
     x_new = x0.copy()
-    max_iter = 100
     row, col = np.shape(A)
 
-    for iter in range(max_iter): 
-        x_prev = x_new.copy()
+    for iter in range(maxIter): 
         for i in range(row):     
             substract_val = 0        
             for j in range(col):
                 if i != j:
                     substract_val += A[i, j] * x_new[j]
             x_new[i] = (f[i] - substract_val) / A[i][i]
-        d = np.linalg.norm(x_prev - x_new)
-        if d < 1e-10:
+        Ax = np.dot(A, x_new)               
+        residual = np.linalg.norm(f - Ax)
+        if residual < tol:
+            print "stopped after ", iter, " iterations"
             break
         
     return x_new

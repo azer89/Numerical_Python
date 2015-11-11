@@ -51,7 +51,7 @@ def JacobiSolve(A, f, u0, maxIter, tol):
     
     x_new = u0.copy()
     for iter in range(maxIter): 
-        x_prev = x_new.copy()
+        #x_prev = x_new.copy()
         
         # b + (L + U) x_{n}
         right_side = f + np.dot(LplusU, x_new)
@@ -59,9 +59,9 @@ def JacobiSolve(A, f, u0, maxIter, tol):
         # calculate x_{n+1} using backward substitution 
         x_new = backsub(D, right_side)
         
-        # stop ?
-        d = np.linalg.norm(x_prev - x_new)
-        if d < tol:
+        Ax = np.dot(A, x_new)               
+        residual = np.linalg.norm(f - Ax)
+        if residual < tol:
             print "stopped after ", iter, " iterations"
             break
     
