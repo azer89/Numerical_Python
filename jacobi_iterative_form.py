@@ -22,6 +22,9 @@ def JacobiIteration(A, f, x0, maxIter = 100, tol = 1e-10):
                     substract_val += A[i, j] * x_new[j]
             x_copy[i] = (f[i] - substract_val) / A[i][i]
         x_new = x_copy.copy()
+        
+        
+        # if the residual is below threshold, we stop
         Ax = np.dot(A, x_new)               
         residual = np.linalg.norm(f - Ax)
         if residual < tol:

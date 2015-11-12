@@ -88,7 +88,10 @@ def GSsolve(A, f, u0, maxIter = 100, tol = 1e-10):
     x_new = u0.copy()
     
     for iter in range(maxIter): 
+        # perform a single step        
         x_new = GSstep(A, x_new, f, DminL, U)        
+
+        # if the residual is below threshold, we stop        
         Ax = np.dot(A, x_new)               
         residual = np.linalg.norm(f - Ax)
         if residual < tol:

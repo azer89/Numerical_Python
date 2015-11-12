@@ -59,6 +59,7 @@ def JacobiSolve(A, f, u0, maxIter, tol):
         # calculate x_{n+1} using backward substitution 
         x_new = backsub(D, right_side)
         
+        # if the residual is below threshold, we stop
         Ax = np.dot(A, x_new)               
         residual = np.linalg.norm(f - Ax)
         if residual < tol:

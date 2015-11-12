@@ -20,6 +20,8 @@ def GaussSeidelIteration(A, f, x0, maxIter = 100, tol = 1e-10):
                 if i != j:
                     substract_val += A[i, j] * x_new[j]
             x_new[i] = (f[i] - substract_val) / A[i][i]
+            
+        # if the residual is below threshold, we stop 
         Ax = np.dot(A, x_new)               
         residual = np.linalg.norm(f - Ax)
         if residual < tol:
