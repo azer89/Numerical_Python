@@ -28,9 +28,11 @@ def backsub(U, b):
 
 '''
 
-A = D - L - U
+Solve a linear system with 
+    D x_{n+1} = b + (L + U) x_{n}
 
-D x_{n+1} = b + (L + U) x_{n}
+where
+    A = D - L - U
 '''
 def JacobiSolve(A, f, u0, maxIter, tol):
     
@@ -69,7 +71,9 @@ def JacobiSolve(A, f, u0, maxIter, tol):
     # return the solution
     return x_new
     
-
+'''
+Main function
+'''
 if __name__ == "__main__":
     A = np.array([[ 10.0, -1.0,  2.0,  0.0], 
                   [ -1.0, 11.0, -1.0,  3.0], 

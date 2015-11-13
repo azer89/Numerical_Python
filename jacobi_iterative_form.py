@@ -33,6 +33,9 @@ def JacobiIteration(A, f, x0, maxIter = 100, tol = 1e-10):
         
     return x_new
 
+'''
+Main function
+'''
 if __name__ == "__main__":
     # example from wikipedia
     A = np.array([[ 10.0, -1.0,  2.0,  0.0], 

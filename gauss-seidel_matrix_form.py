@@ -31,6 +31,8 @@ parameters:
     A     : a square matrix
     u0    : the initial guess
     f     : the right hand side matrix, Ax = f
+    
+optional parameters:
     DminL : a lower-triangular (D - L) matrix, where A = D - L - U
     U     : an upper triangular matrix without the diagonal, where A = D - L - U
 return:
@@ -62,26 +64,25 @@ def GSstep(A, u0, f, DminL=None, U=None):
     return forwardsub(DminL, right_side)
         
 '''
+Solve a linear system with
+    (D - L) x_{n+1} = (b + U x_{n})
 
-A = D - L - U
+where
+    A = D - L - U
 
-(D - L) x_{n+1} = (b + U x_{n})
 '''
 def GSsolve(A, f, u0, maxIter = 100, tol = 1e-10):
-
+    
     # precompute A = D - L - U (optional)
     # create a diagonal matrix D    
     D_vec = np.diag(A)
     D = np.zeros(np.shape(A))
     for i in range(len(D_vec)):
-        D[i, i] = D_vec[i] 
-    
+        D[i, i] = D_vec[i]     
     # create lower-triangular matrix
     L = -np.tril(A) + D 
-
     # create upper-triangular matrix        
-    U = -np.triu(A) + D
-    
+    U = -np.triu(A) + D    
     # calculate D - L once
     DminL = D - L
     
@@ -89,8 +90,8 @@ def GSsolve(A, f, u0, maxIter = 100, tol = 1e-10):
     
     for iter in range(maxIter): 
         # perform a single step        
-        x_new = GSstep(A, x_new, f, DminL, U)        
-
+        x_new = GSstep(A, x_new, f, DminL, U) 
+        
         # if the residual is below threshold, we stop        
         Ax = np.dot(A, x_new)               
         residual = np.linalg.norm(f - Ax)
@@ -100,7 +101,10 @@ def GSsolve(A, f, u0, maxIter = 100, tol = 1e-10):
     
     # return the solution        
     return x_new
-    
+
+'''
+Main function
+'''
 if __name__ == "__main__":
     A = np.array([[ 10.0, -1.0,  2.0,  0.0], 
                   [ -1.0, 11.0, -1.0,  3.0], 

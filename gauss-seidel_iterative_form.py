@@ -8,7 +8,14 @@ Gauss-Seidel iterative method
 import numpy as np
 
 
+'''
+An iterative form of Gauss-Seidel method
 
+parameters:
+    A     : a square matrix
+    u0    : the initial guess
+    f     : the right hand side matrix, Ax = f
+'''
 def GaussSeidelIteration(A, f, x0, maxIter = 100, tol = 1e-10):
     x_new = x0.copy()
     row, col = np.shape(A)
@@ -29,7 +36,10 @@ def GaussSeidelIteration(A, f, x0, maxIter = 100, tol = 1e-10):
             break
         
     return x_new
-    
+
+'''
+Main function
+'''
 if __name__ == "__main__":
     # example from wikipedia
     A = np.array([[ 10.0, -1.0,  2.0,  0.0], 
