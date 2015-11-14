@@ -8,7 +8,8 @@ a matrix version of gauss-seidel method
 import numpy as np
 
 '''
-Function to perform forward substitution
+This is my own implementation of forward substitution,
+might different with Jeff's version
 '''
 def forwardsub(L, b):
     row, col = np.shape(L)
