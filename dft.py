@@ -1,30 +1,26 @@
 
 
-import numpy as np
-import sys
+'''
+Discrete Fourier Transform
+'''
 
+import numpy as np
+import matplotlib.pylab as plt
 
 N = 10
-k = N
-n = N
 
 x = np.arange(0, 1, 1.0 / float(N))
 
 freq = 1.0
 f = np.sin (2.0 * np.pi * freq * x)
 
-#z = complex(3, 4)
-#print z.real
-#print z.imag
-
 F = np.zeros(N, dtype=complex)
+for k in range(N): 
+    for n in range(N):
+        F[k] += f[n] * np.exp(-2.0j * np.pi * n * k / float(N))
 
-for k_iter in range(k):
-    for n_iter in range(n):
-        z = (-2.0 * np.pi * k_iter * n_iter) / float(N)
-        
-        if(abs(z) > sys.float_info.epsilon):
-            F[k_iter] += complex(0, f[k_iter] * np.exp(z))
-        else:
-            F[k_iter] += complex(F[k_iter].real + f[k_iter], 0)
-        
+F_abs = np.absolute(F)
+
+plt.clf()
+plt.plot(x, F_abs, 'r') # print the magnitude
+plt.show()
