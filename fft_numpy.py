@@ -1,5 +1,5 @@
 '''
-Fast fourier transform using python
+Fast fourier transform using numpy.fft
 
 http://glowingpython.blogspot.ca/2011/08/how-to-plot-frequency-spectrum-with.html
 http://snowball.millersville.edu/~adecaria/ESCI386P/esci386-lesson17-Fourier-Transforms.pdf (page 21)

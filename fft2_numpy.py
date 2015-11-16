@@ -1,7 +1,7 @@
 
 
 '''
-2D FFT Example
+2D FFT Example using numpy.fft
 '''
 
 
@@ -14,15 +14,19 @@ import matplotlib.pylab as plt
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.299, 0.587, 0.144])    
 
-img_col = matplotlib.image.imread("caesar.png")
+img_col = matplotlib.image.imread("caesar_small.png")
 img_gray = rgb2gray(img_col)
 
 width, height = np.shape(img_gray)
 
-#plt.imshow(img_col)
-#plt.clf()
-#plt.imshow(img_gray, cmap='gray') 
+'''
+# show the original image
+plt.imshow(img_col)
+plt.clf()
+plt.imshow(img_gray, cmap='gray') 
+'''  
 
-F = np.fft.fft(img_gray) 
+F = np.fft.fft2(img_gray) 
 
-plt.imshow(np.real(F)) 
+plt.clf()
+plt.imshow(np.absolute(F)) 

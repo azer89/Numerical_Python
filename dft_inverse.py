@@ -10,7 +10,6 @@ N = 200
 F = np.zeros(N, dtype=complex)
 
 F[5] = complex(1)
-#F[N-1] = complex(1, 1)
 
 f = np.zeros(N, dtype=complex)
 for k in range(N): 

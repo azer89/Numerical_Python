@@ -18,7 +18,6 @@ for w in range(width):
         for m in range(width):
             for n in range(height):
                 f[w, h] += F[m, n] * np.exp(2.0j * np.pi * (float(w * m) / float(width) + float(h * n) / float(height)))
-        #f[w, h] += 0.5
                         
 plt.clf()
 plt.imshow(np.real(f), cmap="gray")
