@@ -1,4 +1,7 @@
 '''
+Reza Adhitya Saputra
+radhitya@uwaterloo.ca
+
 Fast fourier transform using numpy.fft
 
 http://glowingpython.blogspot.ca/2011/08/how-to-plot-frequency-spectrum-with.html

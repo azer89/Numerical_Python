@@ -1,5 +1,8 @@
 
 '''
+Reza Adhitya Saputra
+radhitya@uwaterloo.ca
+
 2D Inverse FFT Example
 '''
 

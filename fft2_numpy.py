@@ -1,6 +1,9 @@
 
 
 '''
+Reza Adhitya Saputra
+radhitya@uwaterloo.ca
+
 2D FFT Example using numpy.fft
 '''
 

@@ -1,4 +1,7 @@
 '''
+Reza Adhitya Saputra
+radhitya@uwaterloo.ca
+
 2D  DFT
 '''
 

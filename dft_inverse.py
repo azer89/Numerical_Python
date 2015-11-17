@@ -1,5 +1,8 @@
 
 '''
+Reza Adhitya Saputra
+radhitya@uwaterloo.ca
+
 Inverse Discrete Fourier Transform
 '''
 
