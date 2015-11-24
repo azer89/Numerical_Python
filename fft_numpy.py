@@ -11,13 +11,14 @@ http://snowball.millersville.edu/~adecaria/ESCI386P/esci386-lesson17-Fourier-Tra
 import numpy as np
 import matplotlib.pylab as plt
 
-sampling_rate = 10.0
+sampling_rate = 11.0
 x = np.arange(0, 1, 1.0 / sampling_rate)
 
 freq = 1.0
 y = np.sin (2.0 * np.pi * freq * x)
 
 disturbance =  np.random.rand(len(y)) - 0.5
+y += disturbance
 
 Y = np.fft.fft(y)
 Y_abs = np.absolute(Y)

@@ -166,12 +166,12 @@ if __name__ == "__main__":
     #root = bisection(my_func, 0.0, 1.0)
     #print '(bisection) the root is ', root
     
-    #root, x_history = fixed_point(phi, 0.5)
-    #print '(fixed-point) the root is ', root    
-    #plot_fixed_point_method(phi, 0.0, 1.0, x_history)
+    root, x_history = fixed_point(phi, 0.5)
+    print '(fixed-point) the root is ', root    
+    plot_fixed_point_method(phi, 0.0, 1.0, x_history)
     
-    root, x_history = newton(my_func, dfdx, 0.5)
-    print '(newton) the root is ', root    
+    #root, x_history = newton(my_func, dfdx, 0.5)
+    #print '(newton) the root is ', root    
     
     #root, x_history = secant(my_func, 0.4, 0.6)
     #print '(secant) the root is ', root   
