@@ -26,12 +26,18 @@ N = len(f1)
 F1 = np.fft.fft(f1)
 F2 = np.fft.fft(f2)
 
+# The calculation is based on cross-correlation
+# which is a method to calculate the similarity of two signals where
+# one of the two is delayed by a certain amount of time
+
+# since cross-correlation is "inverse" of convolution,
+# we multiply the complex conjugate of F1 with F2
+# Note that we are doing (element-wise) multiplication in the frequency domain
+# so that this operation is the cross-correlation operation in the time domain
 F1conj_F2 = F1.conjugate() * F2
 F2conj_F1 = F2.conjugate() * F1
-
 ifft_F1conj_F2 = np.fft.ifft(F1conj_F2)
 ifft_F2conj_F1 = np.fft.ifft(F2conj_F1)
-
 shift1 = np.argmax(np.absolute(ifft_F1conj_F2)) / float(N)
 shift2 = np.argmax(np.absolute(ifft_F2conj_F1)) / float(N)
 
@@ -47,16 +53,16 @@ plt.plot(x, np.real(F2), color="red")
 plt.plot(x, np.imag(F2), color="red")
 plt.show()
 
-plt.figure(2)
-plt.clf()
-plt.plot(x, np.real(ifft_F1conj_F2), color="blue")
-plt.plot(x, np.imag(ifft_F1conj_F2), color="blue", linestyle="--")
-plt.show()
+#plt.figure(2)
+#plt.clf()
+#plt.plot(x, np.real(ifft_F1conj_F2), color="blue")
+#plt.plot(x, np.imag(ifft_F1conj_F2), color="blue", linestyle="--")
+#plt.show()
 
-plt.figure(3)
-plt.clf()
-plt.plot(x, np.real(ifft_F2conj_F1), color="red")
-plt.plot(x, np.imag(ifft_F2conj_F1), color="red", linestyle="--")
-plt.show()
+#plt.figure(3)
+#plt.clf()
+#plt.plot(x, np.real(ifft_F2conj_F1), color="red")
+#plt.plot(x, np.imag(ifft_F2conj_F1), color="red", linestyle="--")
+#plt.show()
 
 
