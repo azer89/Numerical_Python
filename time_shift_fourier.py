@@ -8,61 +8,52 @@ Time-shift Fourier
 import numpy as np
 import matplotlib.pylab as plt
 
-sampling_rate = 100.0
-delta = 1.0 / sampling_rate
-x = np.arange(0, 1, delta)
-shift = -0.01
-freq = 1.0
-f1 = np.sin (2.0 * np.pi * freq * x)
-f2 = np.sin (2.0 * np.pi * freq * (x + shift))
-N = len(f1)
+"""
+Calculate the delay between two signals f1 and f2 using cross-correlation.
+To get a proper result, f1 and f2 should be periodic
+"""
+def GetDelay(f1, f2):    
+    assert(len(f1) == len(f2))
+    N = len(f1)
+    
+    F1 = np.fft.fft(f1)
+    F2 = np.fft.fft(f2)
+    
+    # Tis is based on cross-correlation which can calculate the similarity of two signals 
+    # where one of the two is delayed
 
-#noise1 =  np.random.rand(len(f1)) - 0.5
-#f1 += noise1 * 0.005
-#
-#noise2 =  np.random.rand(len(f2)) - 0.5
-#f2 += noise2 * 0.005
+    # We multiply the complex conjugate of F1 with F2 in the frequency domain
+    # so that the operation is the cross-correlation operation in the time domain
+    F1conj_F2 = np.conj(-F1) * F2
+    
+    # this is the cross-correlation of f1 and f2 (time domain)
+    f1_cc_f2 = np.fft.ifft(F1conj_F2) 
+    
+    # the delay is located at the index where the similarity value is the greatest
+    shift_value = np.argmax(np.absolute(f1_cc_f2)) / float(N)
+    
+    return shift_value
 
-F1 = np.fft.fft(f1)
-F2 = np.fft.fft(f2)
-
-# The calculation is based on cross-correlation
-# which is a method to calculate the similarity of two signals where
-# one of the two is delayed by a certain amount of time
-
-# since cross-correlation is "inverse" of convolution,
-# we multiply the complex conjugate of F1 with F2
-# Note that we are doing (element-wise) multiplication in the frequency domain
-# so that this operation is the cross-correlation operation in the time domain
-F1conj_F2 = F1.conjugate() * F2
-F2conj_F1 = F2.conjugate() * F1
-ifft_F1conj_F2 = np.fft.ifft(F1conj_F2)
-ifft_F2conj_F1 = np.fft.ifft(F2conj_F1)
-shift1 = np.argmax(np.absolute(ifft_F1conj_F2)) / float(N)
-shift2 = np.argmax(np.absolute(ifft_F2conj_F1)) / float(N)
-
-plt.figure(1)
-plt.clf()
-plt.subplot(2,1,1)
-plt.plot(x, f1, color="blue")
-plt.plot(x, f2, color="red")
-plt.subplot(2,1,2)
-plt.plot(x, np.real(F1), color="blue")
-plt.plot(x, np.imag(F1), color="blue")
-plt.plot(x, np.real(F2), color="red")
-plt.plot(x, np.imag(F2), color="red")
-plt.show()
-
-#plt.figure(2)
-#plt.clf()
-#plt.plot(x, np.real(ifft_F1conj_F2), color="blue")
-#plt.plot(x, np.imag(ifft_F1conj_F2), color="blue", linestyle="--")
-#plt.show()
-
-#plt.figure(3)
-#plt.clf()
-#plt.plot(x, np.real(ifft_F2conj_F1), color="red")
-#plt.plot(x, np.imag(ifft_F2conj_F1), color="red", linestyle="--")
-#plt.show()
-
+if __name__ == "__main__":
+    sampling_rate = 100.0
+    delta = 1.0 / sampling_rate
+    x = np.arange(0, 1, delta)
+    shift = -0.01
+    freq = 1.0
+    f1 = np.sin (2.0 * np.pi * freq * x)
+    f2 = np.sin (2.0 * np.pi * freq * (x + shift))
+    N = len(f1)
+        
+    F1 = np.fft.fft(f1)
+    F2 = np.fft.fft(f2)
+    
+    # Calculate the delay
+    shift1 = GetDelay(f1, f2)
+    shift2 = GetDelay(f2, f1)
+    
+    plt.clf()
+    
+    plt.plot(x, f1, color="blue")
+    plt.plot(x, f2, color="red")
+    plt.show()
 
