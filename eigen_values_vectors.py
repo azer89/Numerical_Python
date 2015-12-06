@@ -1,5 +1,8 @@
 
 """
+Reza Adhitya Saputra
+radhitya@uwaterloo.ca
+
 
 Eigenvalues and Eigenvectors DEMO
 
@@ -7,7 +10,7 @@ Eigenvalues and Eigenvectors DEMO
 
 import numpy as np
 
-# This code is adapted from Jeff Orchard's demo on UWaterloo CS770
+# This code is adapted from Jeff Orchard's demo during UWaterloo CS770 (Fall 2015)
 
 """
 The power iteration to find
