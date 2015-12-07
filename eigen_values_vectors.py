@@ -27,29 +27,16 @@ def PowerIteration(M, n_iter=100):
 
 if __name__ == "__main__":
     
-    # real symmetric matrix
+    # Real symmetric matrix
     N = 4
-    A = np.random.rand(N, N) * 10.0 - 5.0
+    A = np.random.rand(N, N) - 0.5
     A = A + A.T
     
-    ### DEMO 1
     
-    # Eigen decomposition
+    """ DEMO 1 """   
+    # Eigen decomposition (L: Eigenvalues. V: Eigenvectors)
     L, V = np.linalg.eig(A)
-    
-    """    
-    print "Eigenvalues:"
-    print L # eigenvalues
-    print "Eigenvectors:"
-    print V # eigenvectors
-    """
-    
-    """
-    mags = []
-    for i in range(N):
-        mags.append(np.linalg.norm(V[:,i]))    
-    """
-    
+            
     # Raleigh quotient
     # if x is an eigenvector then r(x) is an eigenvalue
     
@@ -69,22 +56,38 @@ if __name__ == "__main__":
     x3 = V[:,3]
     r3 = np.dot(x3.T, np.dot(A, x3)) / np.dot(x3.T, x3)
 
-    ### DEMO 2    
-    # biggest
+    """ DEMO 2 """ 
+    # biggest magnitude 
     l_big, v_big = PowerIteration(A)
     print "Power Iteration"
     print "eigenvalue: ", l_big, "    eigenvector: ", v_big  
     
-    # smallest
+    # smallest magnitude
     l_small, v_small = PowerIteration(np.linalg.inv(A))
     l_small = 1.0/l_small
     print "Power Iteration"
-    print "eigenvalue: ", l_small, "    eigenvector: ", v_small     
+    print "eigenvalue: ", l_small, "    eigenvector: ", v_small  
     
-    ### DEMO 3
+    """ DEMO 3 """
     mu = 0.7
-    B = A = mu * np.eye(4)
+    B = A - mu * np.eye(4)
     L_B, V_B = np.linalg.eig(B) # the eigenvalues are shifted by mu
+    
+    """ DEMO 4 """
+    # QR Iteration
+    Ak = A.copy()
+    Q = np.eye(N)
+    n_iter = 1000
+    for i in range(n_iter):
+        q, r = np.linalg.qr(Ak)
+        Ak = np.dot(r, q)
+        Q = np.dot(Q, q)
+        
+    print "(QR) E-values:\n", np.round(np.diag(Ak), 10)
+    print "(QR) E-vectors:\n", np.round(Q, 10)
+        
+    
+    
     
     
     
