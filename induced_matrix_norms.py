@@ -27,7 +27,9 @@ A = np.random.rand(2, 2) - 0.5
 
 # induced matrix norm
 # this is an implementation of p-norm:
-# $\max_{ (\left \| z \right \|)_{p} = 1 } (\left \|  A z \right \|)_{p}$
+# $\max_{ (\left \| z \right \|)_{p} = 1 } (\left \|  A z \right \|)_{p}$ 
+#
+
 vals = []
 thetas = np.arange(0, np.pi, np.pi / 360.0) 
 for theta in thetas:
@@ -36,20 +38,35 @@ for theta in thetas:
     vals.append(  np.linalg.norm(np.dot(A, z))  )
     
 # the biggest element
-max_idx = get_max_idx(vals)
-    
-# plot
-#plt.plot(thetas, vals, color='blue')
-#plt.plot(thetas[max_idx], vals[max_idx], 'o', color='red')
-#plt.show()
+max_idx = get_max_idx(vals) # can be replaced with argmax
 
-# 
+plt.figure(1)
+plt.clf()
+plt.plot(thetas, vals)
+    
+# plot the induced matrix norm
+plt.plot(thetas, vals, color='blue')
+plt.plot(thetas[max_idx], vals[max_idx], 'o', color='red')
+plt.show()
+
+# here, z is random
 B = A + A.T
-for i in range(500) :
+plt.figure(2)
+plt.clf()
+for i in range(100) :
     x = np.random.rand(2) - 0.5
     x = x / np.linalg.norm(x)
     y = np.dot(B, x)
     plt.plot(y[0],y[1],'.')
+
+
+EVals, EVecs = np.linalg.eig(B)
+
+V1 = EVals[0] * EVecs[:,0] # long
+V2 = EVals[1] * EVecs[:,1] # short
+
+plt.plot([0,V1[0]], [0,V1[1]])
+plt.plot([0,V2[0]], [0,V2[1]])
+
 plt.axis('equal')
 plt.show()
-
