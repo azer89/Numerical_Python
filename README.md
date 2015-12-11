@@ -15,3 +15,7 @@ Some random programs written in python. They are mostly about numerical methods.
 * [qr_householder.py](https://github.com/azer89/python_stuff/blob/master/qr_householder.py)
 * [qr_linear.py](https://github.com/azer89/python_stuff/blob/master/qr_linear.py) minimize || Ax - b || using qr factorization
 
+**Root finding Methods**
+*[rootfinding_methods.py](https://github.com/azer89/python_stuff/blob/master/rootfinding_methods.py)
+*[vector_newton.py](https://github.com/azer89/python_stuff/blob/master/vector_newton.py)
+
