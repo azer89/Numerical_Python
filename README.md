@@ -25,9 +25,19 @@ Some random programs written in python. They are mostly about numerical methods.
 * [eigen_values_vectors.py](https://github.com/azer89/python_stuff/blob/master/eigen_values_vectors.py)
 * [svd_demo.py](https://github.com/azer89/python_stuff/blob/master/svd_demo.py)
 
+**Iterative Methods for Ax=b**
+* [jacobi_iterative_form.py](https://github.com/azer89/python_stuff/blob/master/jacobi_iterative_form.py)
+* [jacobi_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/jacobi_matrix_form.py)
+* [gauss-seidel_iterative_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_iterative_form.py)
+* [gauss-seidel_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_matrix_form.py)
+
 **Signal Processing**
 * [time_shift_fourier.py](https://github.com/azer89/python_stuff/blob/master/time_shift_fourier.py)
 * [cross_correlation.py](https://github.com/azer89/python_stuff/blob/master/cross_correlation.py)
 * [derivative_fourier.py](https://github.com/azer89/python_stuff/blob/master/derivative_fourier.py)
+* [dft.py](https://github.com/azer89/python_stuff/blob/master/dft.py)
+* [dft2.py](https://github.com/azer89/python_stuff/blob/master/dft2.py)
+* [dft_inverse.py](https://github.com/azer89/python_stuff/blob/master/dft_inverse.py)
+* [dft2_inverse.py](https://github.com/azer89/python_stuff/blob/master/dft2_inverse.py)
 
 
