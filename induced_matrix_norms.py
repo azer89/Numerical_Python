@@ -23,12 +23,10 @@ def get_max_idx(vals):
 
 # generate a random matrix
 A = np.random.rand(2, 2) - 0.5
-#A = A + A.T
 
 # induced matrix norm
 # this is an implementation of p-norm:
 # $\max_{ (\left \| z \right \|)_{p} = 1 } (\left \|  A z \right \|)_{p}$ 
-#
 
 vals = []
 thetas = np.arange(0, np.pi, np.pi / 360.0) 
