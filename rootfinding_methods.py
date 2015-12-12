@@ -25,7 +25,7 @@ def my_func(x):
     #return x**3 - x - 2.0
     
 # phi(x) = x
-# this function is the input for the bisection method
+# this function is the input for the fixed-point method
 def phi(x):
     return math.cos(x)    
     #return x**3 -  2.0
