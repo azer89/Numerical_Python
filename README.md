@@ -4,21 +4,21 @@ Some random programs written in python. They are mostly about numerical methods.
 * [euler_method.py](https://github.com/azer89/python_stuff/blob/master/euler_method.py)
 * [heun_method.py](https://github.com/azer89/python_stuff/blob/master/heun_method.py)
 * [law_of_cooling.py](https://github.com/azer89/python_stuff/blob/master/law_of_cooling.py)
-* [ode12.py](https://github.com/azer89/python_stuff/blob/master/ode12.py)
+* [ode12.py](https://github.com/azer89/python_stuff/blob/master/ode12.py) Adaptive ODE using Euler method and Heun's method
 
 **Algebra**
-* [backward_substitution.py](https://github.com/azer89/python_stuff/blob/master/backward_substitution.py)
-* [forward_substitution.py](https://github.com/azer89/python_stuff/blob/master/forward_substitution.py)
-* [induced_matrix_norms.py](https://github.com/azer89/python_stuff/blob/master/induced_matrix_norms.py)
-* [householder_reflection_vis.py](https://github.com/azer89/python_stuff/blob/master/householder_reflection_vis.py)
-* [lu_decomposition.py](https://github.com/azer89/python_stuff/blob/master/lu_decomposition.py)
-* [qr_householder.py](https://github.com/azer89/python_stuff/blob/master/qr_householder.py)
+* [backward_substitution.py](https://github.com/azer89/python_stuff/blob/master/backward_substitution.py) Solve a linear system given an upper triangular matrix
+* [forward_substitution.py](https://github.com/azer89/python_stuff/blob/master/forward_substitution.py) Solve a linear system given an lower triangular matrix
+* [induced_matrix_norms.py](https://github.com/azer89/python_stuff/blob/master/induced_matrix_norms.py) Calculate p-induced matix norms
+* [householder_reflection_vis.py](https://github.com/azer89/python_stuff/blob/master/householder_reflection_vis.py) Visualizing householder reflection for QR Decomposition
+* [lu_decomposition.py](https://github.com/azer89/python_stuff/blob/master/lu_decomposition.py) LU decomposition
+* [qr_householder.py](https://github.com/azer89/python_stuff/blob/master/qr_householder.py) Householder reflection for QR decomposition 
 * [qr_linear.py](https://github.com/azer89/python_stuff/blob/master/qr_linear.py) &nbsp;&nbsp;&nbsp; minimize || Ax - b || using qr factorization
-* [permutation_matrix.py](https://github.com/azer89/python_stuff/blob/master/permutation_matrix.py)
+* [permutation_matrix.py](https://github.com/azer89/python_stuff/blob/master/permutation_matrix.py) How to swap columns and ows using permutation matrices
 
 **Root finding Methods**
-* [rootfinding_methods.py](https://github.com/azer89/python_stuff/blob/master/rootfinding_methods.py)
-* [vector_newton.py](https://github.com/azer89/python_stuff/blob/master/vector_newton.py)
+* [rootfinding_methods.py](https://github.com/azer89/python_stuff/blob/master/rootfinding_methods.py) Bisection, fixed-point, Newton, and Secant methods
+* [vector_newton.py](https://github.com/azer89/python_stuff/blob/master/vector_newton.py) 
 * [eigenvalue_polynomials.py](https://github.com/azer89/python_stuff/blob/master/eigenvalue_polynomials.py) &nbsp;&nbsp;&nbsp; Eigenvalue method to find roots of polymonials
 
 **Eigenvalues, Eigenvectors, and SVD**
