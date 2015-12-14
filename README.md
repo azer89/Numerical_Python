@@ -26,18 +26,18 @@ Some random programs written in python. They are mostly about numerical methods.
 * [svd_demo.py](https://github.com/azer89/python_stuff/blob/master/svd_demo.py)
 
 **Iterative Methods for Ax=b**
-* [jacobi_iterative_form.py](https://github.com/azer89/python_stuff/blob/master/jacobi_iterative_form.py) Jacobi Iterative Method
-* [jacobi_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/jacobi_matrix_form.py) Jacobi Matrix Method
-* [gauss-seidel_iterative_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_iterative_form.py) Gauss-Seidel Iterative Method
-* [gauss-seidel_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_matrix_form.py) Gauss-Seidel Matrxx Method
+* [jacobi_iterative_form.py](https://github.com/azer89/python_stuff/blob/master/jacobi_iterative_form.py)  &nbsp;&nbsp;&nbsp; Jacobi Iterative Method
+* [jacobi_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/jacobi_matrix_form.py)  &nbsp;&nbsp;&nbsp; Jacobi Matrix Method
+* [gauss-seidel_iterative_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_iterative_form.py)  &nbsp;&nbsp;&nbsp; Gauss-Seidel Iterative Method
+* [gauss-seidel_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_matrix_form.py)  &nbsp;&nbsp;&nbsp; Gauss-Seidel Matrxx Method
 
 **Signal Processing and Fourier Transform**
-* [time_shift_fourier.py](https://github.com/azer89/python_stuff/blob/master/time_shift_fourier.py) Cross Correlation in the frequency domain 
-* [cross_correlation.py](https://github.com/azer89/python_stuff/blob/master/cross_correlation.py) Brute-Force Cross Correlation
-* [derivative_fourier.py](https://github.com/azer89/python_stuff/blob/master/derivative_fourier.py) 1st order derivative approximation using Fourier Transform
-* [dft.py](https://github.com/azer89/python_stuff/blob/master/dft.py) 1D Discrete Fourier Transform
-* [dft2.py](https://github.com/azer89/python_stuff/blob/master/dft2.py) 2D Discrete Fourier Transform
-* [dft_inverse.py](https://github.com/azer89/python_stuff/blob/master/dft_inverse.py) 1D Inverse Discrete Fourier Transform
-* [dft2_inverse.py](https://github.com/azer89/python_stuff/blob/master/dft2_inverse.py) 2D Inverse Discrete Fourier Transform
+* [time_shift_fourier.py](https://github.com/azer89/python_stuff/blob/master/time_shift_fourier.py)  &nbsp;&nbsp;&nbsp; Cross Correlation in the frequency domain 
+* [cross_correlation.py](https://github.com/azer89/python_stuff/blob/master/cross_correlation.py)  &nbsp;&nbsp;&nbsp; Brute-Force Cross Correlation
+* [derivative_fourier.py](https://github.com/azer89/python_stuff/blob/master/derivative_fourier.py)  &nbsp;&nbsp;&nbsp; 1st order derivative approximation using Fourier Transform
+* [dft.py](https://github.com/azer89/python_stuff/blob/master/dft.py)  &nbsp;&nbsp;&nbsp; 1D Discrete Fourier Transform
+* [dft2.py](https://github.com/azer89/python_stuff/blob/master/dft2.py)  &nbsp;&nbsp;&nbsp; 2D Discrete Fourier Transform
+* [dft_inverse.py](https://github.com/azer89/python_stuff/blob/master/dft_inverse.py)  &nbsp;&nbsp;&nbsp; 1D Inverse Discrete Fourier Transform
+* [dft2_inverse.py](https://github.com/azer89/python_stuff/blob/master/dft2_inverse.py)  &nbsp;&nbsp;&nbsp; 2D Inverse Discrete Fourier Transform
 
 
