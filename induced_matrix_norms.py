@@ -51,7 +51,7 @@ plt.show()
 B = A + A.T
 plt.figure(2)
 plt.clf()
-for i in range(100) :
+for i in range(1000) :
     x = np.random.rand(2) - 0.5
     x = x / np.linalg.norm(x)
     y = np.dot(B, x)
