@@ -30,9 +30,10 @@ print diag_U
 print diag_V
 print "\n"
 
+# we know that the singular values are the magnitude of the eigen values.
 
+# calculate eigen values from singular values
 EVals = np.zeros(N)
-
 eps = sys.float_info.epsilon * 1e3
 for i in range(N):
     EVals[i] = S[i]
