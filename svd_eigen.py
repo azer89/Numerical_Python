@@ -16,10 +16,12 @@ A = A + A.T
 
 
 # Eigen decomposition
-L, V = np.linalg.eig(A)
+L_e, V_e = np.linalg.eig(A)
 
 # SVD decomposition
+
 U, S, V = np.linalg.svd(A)
+
 
 
 diag_U = np.diag(U)
@@ -38,12 +40,12 @@ eps = sys.float_info.epsilon * 1e3
 for i in range(N):
     EVals[i] = S[i]
     d = np.abs(diag_U[i] + diag_V[i])
-    print d
+   
     if d < eps:
         EVals[i] = -EVals[i]
         
 
 print "eigen values"
-print L # sorted based on magnitudes
-print EVals# not sorted
+print L_e
+print EVals
 
