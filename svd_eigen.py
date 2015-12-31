@@ -4,6 +4,7 @@ radhitya@uwaterloo.ca
 
 this code is based on:
     http://math.stackexchange.com/questions/23192/eigenvalue-decomposition-singular-value-decomposition
+    http://math.stackexchange.com/questions/546112/recovering-eigenvectors-from-svd
 """
 
 import sys
@@ -19,10 +20,7 @@ A = A + A.T
 L_e, V_e = np.linalg.eig(A)
 
 # SVD decomposition
-
 U, S, V = np.linalg.svd(A)
-
-
 
 diag_U = np.diag(U)
 diag_V = np.diag(V)
@@ -42,8 +40,7 @@ for i in range(N):
     d = np.abs(diag_U[i] + diag_V[i])
    
     if d < eps:
-        EVals[i] = -EVals[i]
-        
+        EVals[i] = -EVals[i]        
 
 print "eigen values"
 print L_e
