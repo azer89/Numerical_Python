@@ -2,6 +2,8 @@
 """
 radhitya@uwaterloo.ca
 
+Obtaining eigen values from SVD decomposition
+
 this code is based on:
     http://math.stackexchange.com/questions/23192/eigenvalue-decomposition-singular-value-decomposition
     http://math.stackexchange.com/questions/546112/recovering-eigenvectors-from-svd
