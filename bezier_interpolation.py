@@ -15,8 +15,6 @@ def DeCasteljau(poly, p0, p1, p2, p3, depth = 0):
         poly.append(p0)  
     
     else:
-        splitParam = 0.5;	# split into two equal lengths
-        
         x0 = p0[0]
         y0 = p0[1]
         
@@ -27,7 +25,16 @@ def DeCasteljau(poly, p0, p1, p2, p3, depth = 0):
         y2 = p2[1] 
         
         x3 = p3[0]
-        y3 = p3[1]
+        y3 = p3[1]        
+        
+        """
+        # http://stackoverflow.com/questions/11302937/finding-y-given-x-on-a-cubic-bezier-curve
+        newX = p0[0] + (p3[0] - p0[0]) * 0.5    
+        oneMinX = 1 - newX        
+        newY = oneMinX**3.0 * y0 + 3.0 * oneMinX**2.0 * newX * y1 + 3.0 * oneMinX * newX**2.0 * y2 + newX**3.0 * y3        
+        """
+        
+        splitParam = 0.5;	# split into two equal lengths
         
         x01 = (x1 - x0) * splitParam + x0
         x12 = (x2 - x1) * splitParam + x1
@@ -48,7 +55,8 @@ def DeCasteljau(poly, p0, p1, p2, p3, depth = 0):
         
         DeCasteljau(poly, np.array([x0, y0]),        np.array([x01, y01]),   np.array([x012, y012]), np.array([x0123, y0123]), depth + 1)
         DeCasteljau(poly, np.array([x0123,  y0123]), np.array([x123, y123]), np.array([x23, y23]),   np.array([x3, y3]), depth + 1)
-
+        
+        
 def CurveToBezier(p0, p1, p2, p3, t_smooth_factor = 0.5):
     
     xc1 = (p0[0] + p1[0]) / 2.0	
