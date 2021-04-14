@@ -1,4 +1,4 @@
-Some random programs written in python. They are mostly about numerical methods.
+Numerical methods written in Python 2.
 
 **Ordinary Differential Equations**
 * [euler_method.py](https://github.com/azer89/python_stuff/blob/master/euler_method.py)
