@@ -1,10 +1,16 @@
-'''
-This code is rewritten from http://www.nervouscomputer.com/hfs/pdf/introtns/Getting-to-know-Python.pdf
-'''
-
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
+
+'''
+from wiki
+
+y'(t) = f(t,y(t))
+
+y(t_0)=y_0
+
+y_{n+1} = y_n + hf(t_n,y_n)
+'''
 
 # right hand side of the ODE
 def f(x, y) :
