@@ -29,7 +29,7 @@ Numerical methods written in Python 2.
 * [jacobi_iterative_form.py](https://github.com/azer89/python_stuff/blob/master/jacobi_iterative_form.py)  &nbsp;&nbsp;&nbsp; Jacobi Iterative Method
 * [jacobi_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/jacobi_matrix_form.py)  &nbsp;&nbsp;&nbsp; Jacobi Matrix Method
 * [gauss-seidel_iterative_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_iterative_form.py)  &nbsp;&nbsp;&nbsp; Gauss-Seidel Iterative Method
-* [gauss-seidel_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_matrix_form.py)  &nbsp;&nbsp;&nbsp; Gauss-Seidel Matrxx Method
+* [gauss-seidel_matrix_form.py](https://github.com/azer89/python_stuff/blob/master/gauss-seidel_matrix_form.py)  &nbsp;&nbsp;&nbsp; Gauss-Seidel Matrix Method
 
 **Signal Processing and Fourier Transform**
 * [time_shift_fourier.py](https://github.com/azer89/python_stuff/blob/master/time_shift_fourier.py)  &nbsp;&nbsp;&nbsp; Cross Correlation in the frequency domain 
